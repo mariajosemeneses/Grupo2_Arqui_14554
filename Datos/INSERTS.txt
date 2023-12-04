@@ -1,0 +1,122 @@
+
+
+INSERT INTO CLIENTE (TIPO_CLIENTE, TIPO_IDENTIFICACION, NUMERO_IDENTIFICACION, NOMBRE, DIRECCION, CORREO_ELECTRONICO, TELEFONO)
+VALUES 
+  ('JUR', 'RUC', '1234567890001', 'Empresa A S.A.', 'Av. Empresarial 456', 'info@empresaA.com', '987-654-3210'),
+  ('JUR', 'RUC', '9876543210001', 'Empresa B S.A.', 'Calle Comercial 789', 'info@empresaB.com', '123-456-7890'),
+  ('JUR', 'RUC', '1112223330001', 'Empresa C S.A.', 'Plaza Empresarial 123', 'info@empresaC.com', '456-789-0123');
+INSERT INTO CLIENTE (TIPO_CLIENTE, TIPO_IDENTIFICACION, NUMERO_IDENTIFICACION, NOMBRE, DIRECCION, CORREO_ELECTRONICO, TELEFONO)
+VALUES 
+  ('NAT', 'CED', '1122334455', 'Juan Pérez', 'Calle 123', 'juan@email.com', '111-222-3333'),
+  ('NAT', 'CED', '2233445566', 'María González', 'Avenida Principal', 'maria@email.com', '222-333-4444'),
+  ('NAT', 'CED', '3344556677', 'Carlos Rodríguez', 'Carrera 789', 'carlos@email.com', '333-444-5555'),
+  ('NAT', 'CED', '4455667788', 'Laura Martínez', 'Callejón 456', 'laura@email.com', '444-555-6666'),
+  ('NAT', 'CED', '5566778899', 'Pedro Gómez', 'Paseo 789', 'pedro@email.com', '555-666-7777'),
+  ('NAT', 'CED', '6677889900', 'Ana Sánchez', 'Ruta 123', 'ana@email.com', '666-777-8888'),
+  ('NAT', 'CED', '7788990011', 'Jorge López', 'Bulevar 456', 'jorge@email.com', '777-888-9999');
+
+INSERT INTO TIPO_RELACION (COD_TIPO_RELACION, NOMBRE)
+VALUES 
+  ('RE4', 'Relación 4'),
+  ('RE5', 'Relación 5'),
+  ('RE6', 'Relación 6');
+
+
+INSERT INTO DATO_ADICIONAL (COD_DATO_ADICIONAL, TIPO_CLIENTE, NOMBRE, TIPO_DATO, LONGITUD)
+VALUES 
+  ('DATO1', 'NAT', 'Dato Natural 1', 'ALF', 50),
+  ('DATO2', 'JUR', 'Dato Jurídico 1', 'NUM', NULL),
+  ('DATO3', 'NAT', 'Dato Natural 2', 'FEC', NULL);
+
+-- Datos de prueba para la tabla DATO_ADICIONAL
+INSERT INTO DATO_ADICIONAL (COD_DATO_ADICIONAL, TIPO_CLIENTE, NOMBRE, TIPO_DATO, LONGITUD)
+VALUES 
+  ('DATO4', 'NAT', 'Dato Natural 1', 'ALF', 50),
+  ('DATO5', 'JUR', 'Dato Jurídico 1', 'NUM', NULL),
+  ('DATO6', 'NAT', 'Dato Natural 2', 'FEC', NULL);
+
+-- Datos de prueba para la tabla CLIENTE_DATO_ADICIONAL
+INSERT INTO CLIENTE_DATO_ADICIONAL (COD_DATO_ADICIONAL, COD_CLIENTE, VALOR_ALFANUMERICO, VALOR_NUMERICO, VALOR_FECHA)
+VALUES 
+  ('DATO4', 1, 'Información 1', 123.45, '2023-12-01'),
+  ('DATO5', 2, 'Información 2', 678.90, '2023-12-02'),
+  ('DATO6', 3, 'Información 3', 101.11, '2023-12-03');
+
+-- Datos de prueba para la tabla TIPO_RELACION
+INSERT INTO TIPO_RELACION (COD_TIPO_RELACION, NOMBRE)
+VALUES 
+  ('RE1', 'Relación 1'),
+  ('RE2', 'Relación 2'),
+  ('RE3', 'Relación 3');
+
+-- Datos de prueba para la tabla CLIENTE_PERSONA_RELACION
+INSERT INTO CLIENTE_PERSONA_RELACION (COD_CLIENTE_PERSONA_RELACION, COD_TIPO_RELACION, COD_CLIENTE_EMPRESA, COD_CLIENTE_PERSONA, ESTADO, FECHA_INICIO, FECHA_FIN)
+VALUES 
+  (1, 'RE1', 1, 2, 'ACT', '2023-12-01', NULL),
+  (2, 'RE2', 2, 3, 'ACT', '2023-12-02', '2023-12-15'),
+  (3, 'RE3', 3, 1, 'INA', '2023-12-03', '2023-12-20');
+
+-- Datos de prueba para la tabla TASA_INTERES
+INSERT INTO TASA_INTERES (COD_TASA_INTERES, TIPO_TASA_INTERES, NOMBRE, TASA_MINIMA, TASA_MAXIMA)
+VALUES 
+  ('TA1', 'FIJ', 'Tasa Fija 1', 3.5, 5.0),
+  ('TA2', 'VAR', 'Tasa Variable 1', 2.0, 6.0),
+  ('TA3', 'FIJ', 'Tasa Fija 2', 4.0, 5.5);
+
+INSERT INTO TIPO_CUENTA (COD_TIPO_CUENTA, COD_TASA_INTERES, NOMBRE, DESCRIPCION, TIPO_CAPITALIZACION, FORMA_CAPITALIZACION, MAXIMO_NUMERO_INTERVINIENTES, FECHA_CREACION)
+VALUES 
+  ('TI1', 'TA1', 'Cuenta Corriente', 'Cuenta corriente para clientes individuales', 'MEN', 'SPR', 1, '2023-12-01'),
+  ('TI2', 'TA2', 'Cuenta de Ahorros', 'Cuenta de ahorros para clientes individuales', 'DIA', 'SAL', 1, '2023-12-02'),
+  ('TI3', 'TA3', 'Cuenta Empresarial', 'Cuenta para empresas con características especiales', 'MEN', 'SAL', 3, '2023-12-03');
+
+INSERT INTO CUENTA (COD_CUENTA, COD_TIPO_CUENTA, COD_CLIENTE, NUMERO_CUENTA, SALDO_CONTABLE, SALDO_DISPONIBLE, ESTADO, FECHA_CREACION, FECHA_ULTIMO_CAMBIO)
+VALUES 
+  (1, 'TI1', 1, '12345678', 5000.00, 5000.00, 'ACT', '2023-12-01', '2023-12-01'),
+  (2, 'TI2', 2, '23456789', 8000.00, 8000.00, 'ACT', '2023-12-02', '2023-12-02'),
+  (3, 'TI3', 3, '34567890', 10000.00, 10000.00, 'ACT', '2023-12-03', '2023-12-03');
+
+-- Datos de prueba para la tabla CUENTA_INTERVINIENTE
+INSERT INTO CUENTA_INTERVINIENTE (COD_CUENTA, COD_CLIENTE_PERSONA, FECHA_INICIO, ESTADO)
+VALUES 
+  (1, 1, '2023-12-01', 'ACT'),
+  (2, 2, '2023-12-02', 'ACT'),
+  (3, 3, '2023-12-03', 'ACT');
+
+-- Datos de prueba para la tabla TRANSACCION
+INSERT INTO TRANSACCION (COD_TRANSACCION, COD_CUENTA, COD_UNICO, TIPO_AFECTACION, VALOR_DEBE, VALOR_HABER, TIPO_TRANSACCION, DETALLE, FECHA_CREACION, ESTADO, FECHA_AFECTACION)
+VALUES 
+  (1, 1, 'UNICO1', 'D', 1000.00, 0.00, 'DEPOSITO', 'Depósito inicial', '2023-12-01', 'ACT', '2023-12-01'),
+  (2, 2, 'UNICO2', 'D', 2000.00, 0.00, 'DEPOSITO', 'Depósito inicial', '2023-12-02', 'ACT', '2023-12-02'),
+  (3, 3, 'UNICO3', 'D', 3000.00, 0.00, 'DEPOSITO', 'Depósito inicial', '2023-12-03', 'ACT', '2023-12-03'),
+  (4, 1, 'UNICO4', 'C', 0.00, 500.00, 'RETIRO', 'Retiro de fondos', '2023-12-04', 'ACT', '2023-12-04'),
+  (5, 2, 'UNICO5', 'C', 0.00, 1000.00, 'RETIRO', 'Retiro de fondos', '2023-12-05', 'ACT', '2023-12-05'),
+  (6, 3, 'UNICO6', 'C', 0.00, 1500.00, 'RETIRO', 'Retiro de fondos', '2023-12-06', 'ACT', '2023-12-06');
+-- Datos de prueba para la tabla CREDITO
+INSERT INTO CREDITO (COD_CREDITO, COD_TASA_INTERES, COD_CUENTA, TIPO_CREDITO, PLAZO, MONTO, SALDO_PENDIENTE, FECHA_CREACION, FECHA_APROBACION, FECHA_FINALIZACION, INTERES_TOTAL, ESTADO)
+VALUES 
+  (1, 'TA1', 1, 'CON', 12, 5000, 30, '2023-12-01', '2023-12-05', '2024-12-05', 75, 'ACT'),
+  (2, 'TA2', 2, 'CON', 24, 8000, 4, '2023-12-02', '2023-12-07', '2025-12-07', 120, 'ACT'),
+  (3, 'TA3', 3, 'CON', 36, 10000, 80, '2023-12-03', '2023-12-10', '2026-12-10', 180, 'ACT');
+
+INSERT INTO CREDITO_TRANSACCION (COD_CREDITO_TRANSACCION, COD_CREDITO, MONTO_PRINCIPAL, FEHA_CREACION, METODO_PAGO, MONTO_INTERES, MONTO_TOTAL)
+VALUES 
+  (1, 1, 500.00, '2023-12-05', 'TDIR', 75.00, 575.00),
+  (2, 1, 500.00, '2023-12-10', 'TDIR', 75.00, 575.00),
+  (3, 2, 800.00, '2023-12-07', 'TDIR', 120.00, 920.00),
+  (4, 2, 800.00, '2023-12-12', 'TDIR', 120.00, 920.00),
+  (5, 3, 1000.00, '2023-12-10', 'TDIR', 180.00, 1180.00),
+  (6, 3, 1000.00, '2023-12-15', 'TDIR', 180.00, 1180.00);
+
+-- Datos de prueba para la tabla INTERES_MORA
+INSERT INTO INTERES_MORA (COD_INTERES_MORA, COD_CREDITO, MONTO, DIAS_MOROSOS, ESTADO, DESCRIPCION)
+VALUES 
+  (1, 1, 50.00, 5, 'PEN', 'Interés mora pendiente'),
+  (2, 2, 80.00, 7, 'PEN', 'Interés mora pendiente'),
+  (3, 3, 100.00, 10, 'PEN', 'Interés mora pendiente');
+
+-- Datos de prueba para la tabla PARTICIPES
+INSERT INTO PARTICIPES (COD_CREDITO, COD_CUENTA)
+VALUES 
+  (1, 1),
+  (1, 2),
+  (3, 3);
