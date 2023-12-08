@@ -6,4 +6,5 @@ import com.banquito.core.banking.domain.Cuenta;
 
 public interface CuentaRepository extends CrudRepository<ClienteRepository, Long>{
     Cuenta findbyTipoCuentaAndNumeroCuenta(String tipoCuenta, String numeroCuenta);
+    
 }
