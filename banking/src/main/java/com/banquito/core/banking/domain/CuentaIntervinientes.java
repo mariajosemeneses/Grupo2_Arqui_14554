@@ -66,4 +66,11 @@ public class CuentaIntervinientes {
         return true;
     }
 
+    @Override
+    public String toString() {
+        return "CuentaIntervinientes [cuentaIntervinientesPK=" + cuentaIntervinientesPK + ", fechaInicio=" + fechaInicio
+                + ", fechaFin=" + fechaFin + ", estado=" + estado + ", version=" + version + "]";
+    }
+    
+
 }
