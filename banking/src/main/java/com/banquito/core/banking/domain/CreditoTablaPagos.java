@@ -24,9 +24,6 @@ public class CreditoTablaPagos {
     @EmbeddedId
     private CreditoTablaPagosPK creditoTablaPagosPK;
 
-    @Id
-    @Column(name = "COD_CUOTA", nullable = false, length = 3)
-    private Integer codigoCuota;
 
     @Column(name = "CAPITAL", nullable = false, length = 18, scale = 2)
     private long capital;
@@ -88,11 +85,12 @@ public class CreditoTablaPagos {
 
     @Override
     public String toString() {
-        return "CreditoTablaPagos [creditoTablaPagosPK=" + creditoTablaPagosPK + ", codigoCuota=" + codigoCuota
-                + ", capital=" + capital + ", interes=" + interes + ", montoCuota=" + montoCuota + ", capitalRestante="
-                + capitalRestante + ", fechaPlanificadaPago=" + fechaPlanificadaPago + ", estado=" + estado
-                + ", fechaPagoEfectivo=" + fechaPagoEfectivo + ", transaccionPago=" + transaccionPago + ", version="
-                + version + "]";
+        return "CreditoTablaPagos [creditoTablaPagosPK=" + creditoTablaPagosPK + ", capital=" + capital + ", interes="
+                + interes + ", montoCuota=" + montoCuota + ", capitalRestante=" + capitalRestante
+                + ", fechaPlanificadaPago=" + fechaPlanificadaPago + ", estado=" + estado + ", fechaPagoEfectivo="
+                + fechaPagoEfectivo + ", transaccionPago=" + transaccionPago + ", version=" + version + "]";
     }
+
+    
 
 }
