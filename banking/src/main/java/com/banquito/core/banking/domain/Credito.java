@@ -14,7 +14,15 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
+import jakarta.persistence.Version;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.NoArgsConstructor;
 
+
+@Getter
+@Setter
+@NoArgsConstructor
 @Entity
 @Table(name = "CREDITO")
 public class Credito {
@@ -78,147 +86,8 @@ public class Credito {
     @Temporal(TemporalType.TIMESTAMP)
     private Date fechaUltimoCambio;
 
-    public Credito() {
-    }
-
     public Credito(Long codigo) {
         this.codigo = codigo;
-    }
-
-    public Long getCodigo() {
-        return codigo;
-    }
-
-    public void setCodigo(Long codigo) {
-        this.codigo = codigo;
-    }
-
-    public TipoCredito getTipoCredito() {
-        return TipoCredito;
-    }
-
-    public void setTipoCredito(TipoCredito tipoCredito) {
-        TipoCredito = tipoCredito;
-    }
-
-    public Cliente getCliente() {
-        return Cliente;
-    }
-
-    public void setCliente(Cliente cliente) {
-        Cliente = cliente;
-    }
-
-    public List<CreditoInterviniente> getCreditoInterviniente() {
-        return creditoInterviniente;
-    }
-
-    public void setCreditoInterviniente(List<CreditoInterviniente> creditoInterviniente) {
-        this.creditoInterviniente = creditoInterviniente;
-    }
-
-    public List<CreditoTablaPagos> getCreditoTablaPagos() {
-        return creditoTablaPagos;
-    }
-
-    public void setCreditoTablaPagos(List<CreditoTablaPagos> creditoTablaPagos) {
-        this.creditoTablaPagos = creditoTablaPagos;
-    }
-
-    public Integer getCodigoTipoCredito() {
-        return codigoTipoCredito;
-    }
-
-    public void setCodigoTipoCredito(Integer codigoTipoCredito) {
-        this.codigoTipoCredito = codigoTipoCredito;
-    }
-
-    public Integer getCodigoCliente() {
-        return codigoCliente;
-    }
-
-    public void setCodigoCliente(Integer codigoCliente) {
-        this.codigoCliente = codigoCliente;
-    }
-
-    public String getNumeroOperacion() {
-        return numeroOperacion;
-    }
-
-    public void setNumeroOperacion(String numeroOperacion) {
-        this.numeroOperacion = numeroOperacion;
-    }
-
-    public Date getFechaCreación() {
-        return fechaCreación;
-    }
-
-    public void setFechaCreación(Date fechaCreación) {
-        this.fechaCreación = fechaCreación;
-    }
-
-    public long getMonto() {
-        return monto;
-    }
-
-    public void setMonto(long monto) {
-        this.monto = monto;
-    }
-
-    public long getPlazo() {
-        return plazo;
-    }
-
-    public void setPlazo(long plazo) {
-        this.plazo = plazo;
-    }
-
-    public long getTazaInteres() {
-        return tazaInteres;
-    }
-
-    public void setTazaInteres(long tazaInteres) {
-        this.tazaInteres = tazaInteres;
-    }
-
-    public String getEstado() {
-        return estado;
-    }
-
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
-
-    public Date getFechaDesembolso() {
-        return fechaDesembolso;
-    }
-
-    public void setFechaDesembolso(Date fechaDesembolso) {
-        this.fechaDesembolso = fechaDesembolso;
-    }
-
-    public Date getFechaUltimoPago() {
-        return fechaUltimoPago;
-    }
-
-    public void setFechaUltimoPago(Date fechaUltimoPago) {
-        this.fechaUltimoPago = fechaUltimoPago;
-    }
-
-    public long getCapitalPendiente() {
-        return capitalPendiente;
-    }
-
-    public void setCapitalPendiente(long capitalPendiente) {
-        this.capitalPendiente = capitalPendiente;
-    }
-
-    public Date getFechaUltimoCambio() {
-        return fechaUltimoCambio;
-    }
-
-    public void setFechaUltimoCambio(Date fechaUltimoCambio) {
-        this.fechaUltimoCambio = fechaUltimoCambio;
     }
 
     @Override
@@ -246,4 +115,18 @@ public class Credito {
         return true;
     }
 
+    @Override
+    public String toString() {
+        return "Credito [codigo=" + codigo + ", TipoCredito=" + TipoCredito + ", Cliente=" + Cliente
+                + ", creditoInterviniente=" + creditoInterviniente + ", creditoTablaPagos=" + creditoTablaPagos
+                + ", codigoTipoCredito=" + codigoTipoCredito + ", codigoCliente=" + codigoCliente + ", numeroOperacion="
+                + numeroOperacion + ", fechaCreación=" + fechaCreación + ", monto=" + monto + ", plazo=" + plazo
+                + ", tazaInteres=" + tazaInteres + ", estado=" + estado + ", fechaDesembolso=" + fechaDesembolso
+                + ", fechaUltimoPago=" + fechaUltimoPago + ", capitalPendiente=" + capitalPendiente
+                + ", fechaUltimoCambio=" + fechaUltimoCambio + "]";
+    }
+
+    @Version long version;
+
+    
 }
