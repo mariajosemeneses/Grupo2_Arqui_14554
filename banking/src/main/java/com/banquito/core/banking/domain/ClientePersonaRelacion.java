@@ -12,7 +12,15 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
+import jakarta.persistence.Version;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.NoArgsConstructor;
 
+
+@Getter
+@Setter
+@NoArgsConstructor
 @Entity
 @Table(name = "CLIENTE_PERSONA_RELACION")
 public class ClientePersonaRelacion {
@@ -34,19 +42,7 @@ public class ClientePersonaRelacion {
     @JoinColumn(name = "CODIGO_CLIENTE_PERSONA")
     private Cliente clientePersona;
 
-    /*
-     * OPCIONAL
-     * 
-     * @Column(name = "COD_TIPO_RELACION", length = 3)
-     * private String codigoTipoRelacion;
-     * 
-     * @Column(name = "COD_CLIENTE_EMPRESA")
-     * private Long codigoClienteEmpresa;
-     * 
-     * @Column(name = "COD_CLIENTE_PERSONA")
-     * private Long codigoClientePersona;
-     */
-
+   
     @Column(name = "ESTADO")
     private String estado;
 
@@ -58,68 +54,8 @@ public class ClientePersonaRelacion {
     @Temporal(TemporalType.DATE)
     private Date fechaFin;
 
-    public ClientePersonaRelacion() {
-
-    }
-
     public ClientePersonaRelacion(long codigo) {
         this.codigo = codigo;
-    }
-
-    public Long getCodigo() {
-        return codigo;
-    }
-
-    public void setCodigo(Long codigo) {
-        this.codigo = codigo;
-    }
-
-    public TipoRelacion getTipoRelacion() {
-        return tipoRelacion;
-    }
-
-    public void setTipoRelacion(TipoRelacion tipoRelacion) {
-        this.tipoRelacion = tipoRelacion;
-    }
-
-    public Cliente getClienteEmpresa() {
-        return clienteEmpresa;
-    }
-
-    public void setClienteEmpresa(Cliente clienteEmpresa) {
-        this.clienteEmpresa = clienteEmpresa;
-    }
-
-    public Cliente getClientePersona() {
-        return clientePersona;
-    }
-
-    public void setClientePersona(Cliente clientePersona) {
-        this.clientePersona = clientePersona;
-    }
-
-    public String getEstado() {
-        return estado;
-    }
-
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
-
-    public Date getFechaInicio() {
-        return fechaInicio;
-    }
-
-    public void setFechaInicio(Date fechaInicio) {
-        this.fechaInicio = fechaInicio;
-    }
-
-    public Date getFechaFin() {
-        return fechaFin;
-    }
-
-    public void setFechaFin(Date fechaFin) {
-        this.fechaFin = fechaFin;
     }
 
     @Override
@@ -147,4 +83,12 @@ public class ClientePersonaRelacion {
         return true;
     }
 
+    @Override
+    public String toString() {
+        return "ClientePersonaRelacion [codigo=" + codigo + ", tipoRelacion=" + tipoRelacion + ", clienteEmpresa="
+                + clienteEmpresa + ", clientePersona=" + clientePersona + ", estado=" + estado + ", fechaInicio="
+                + fechaInicio + ", fechaFin=" + fechaFin + "]";
+    }
+
+    @Version long version;
 }
