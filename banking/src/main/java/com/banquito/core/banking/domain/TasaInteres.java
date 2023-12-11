@@ -7,7 +7,13 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import jakarta.persistence.Version;
+@Getter
+@Setter
+@NoArgsConstructor
 @Entity
 @Table(name = "TASA_INTERES")
 public class TasaInteres {
@@ -34,64 +40,13 @@ public class TasaInteres {
     @Column(name = "TIPO_MAXIMA", nullable = false, length = 5, scale = 2)
     private Long tasaMaxima;
 
-    public TasaInteres() {
-    }
-
-    public String getCodigo() {
-        return codigo;
-    }
-
-    public void setCodigo(String codigo) {
+    @Version
+    private long version;
+    public TasaInteres(String codigo) {
         this.codigo = codigo;
     }
 
-    public List<TipoCuenta> getTipoCuenta() {
-        return tipoCuenta;
-    }
-
-    public void setTipoCuenta(List<TipoCuenta> tipoCuenta) {
-        this.tipoCuenta = tipoCuenta;
-    }
-
-    public List<TipoCredito> getTipoCredito() {
-        return tipoCredito;
-    }
-
-    public void setTipoCredito(List<TipoCredito> tipoCredito) {
-        this.tipoCredito = tipoCredito;
-    }
-
-    public String getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public Long getTasaMinima() {
-        return tasaMinima;
-    }
-
-    public void setTasaMinima(Long tasaMinima) {
-        this.tasaMinima = tasaMinima;
-    }
-
-    public Long getTasaMaxima() {
-        return tasaMaxima;
-    }
-
-    public void setTasaMaxima(Long tasaMaxima) {
-        this.tasaMaxima = tasaMaxima;
-    }
+   
 
     @Override
     public int hashCode() {
@@ -102,20 +57,10 @@ public class TasaInteres {
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        TasaInteres other = (TasaInteres) obj;
-        if (codigo == null) {
-            if (other.codigo != null)
-                return false;
-        } else if (!codigo.equals(other.codigo))
-            return false;
-        return true;
+    public String toString() {
+        return "TasaInteres [codigo=" + codigo + ", tipoCuenta=" + tipoCuenta + ", tipoCredito=" + tipoCredito
+                + ", tipo=" + tipo + ", nombre=" + nombre + ", tasaMinima=" + tasaMinima + ", tasaMaxima=" + tasaMaxima
+                + ", version=" + version + "]";
     }
 
 }
