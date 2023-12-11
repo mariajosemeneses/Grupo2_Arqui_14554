@@ -3,7 +3,13 @@ package com.banquito.core.banking.domain;
 import java.io.Serializable;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+@Getter
+@Setter
+@NoArgsConstructor
 @Embeddable
 public class CreditoIntervinientePK implements Serializable {
 
@@ -13,27 +19,8 @@ public class CreditoIntervinientePK implements Serializable {
     @Column(name = "COD_CLIENTE", nullable = false)
     private Long codCliente;
 
-    public CreditoIntervinientePK() {
-    }
-
     public CreditoIntervinientePK(Long codCredito, Long codCliente) {
         this.codCredito = codCredito;
-        this.codCliente = codCliente;
-    }
-
-    public Long getCodCredito() {
-        return codCredito;
-    }
-
-    public void setCodCredito(Long codCredito) {
-        this.codCredito = codCredito;
-    }
-
-    public Long getCodCliente() {
-        return codCliente;
-    }
-
-    public void setCodCliente(Long codCliente) {
         this.codCliente = codCliente;
     }
 

@@ -12,14 +12,7 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
-import jakarta.persistence.Version;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-@Getter
-@Setter
-@NoArgsConstructor
 @Entity
 @Table(name = "CLIENTE")
 public class Cliente {
@@ -85,8 +78,163 @@ public class Cliente {
     @OneToMany(mappedBy = "cliente")
     private List<CuentaIntervinientes> cuentaIntervinientes;
 
+    public Cliente() {
+    }
+
     public Cliente(Long codigo) {
         this.codigo = codigo;
+    }
+
+    public Long getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(Long codigo) {
+        this.codigo = codigo;
+    }
+
+    public String getTipoCliente() {
+        return tipoCliente;
+    }
+
+    public void setTipoCliente(String tipoCliente) {
+        this.tipoCliente = tipoCliente;
+    }
+
+    public String getTipoIdentificacion() {
+        return tipoIdentificacion;
+    }
+
+    public void setTipoIdentificacion(String tipoIdentificacion) {
+        this.tipoIdentificacion = tipoIdentificacion;
+    }
+
+    public String getNumeroIdentificacion() {
+        return numeroIdentificacion;
+    }
+
+    public void setNumeroIdentificacion(String numeroIdentificacion) {
+        this.numeroIdentificacion = numeroIdentificacion;
+    }
+
+    public String getApellidos() {
+        return apellidos;
+    }
+
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
+    }
+
+    public String getNombres() {
+        return nombres;
+    }
+
+    public void setNombres(String nombres) {
+        this.nombres = nombres;
+    }
+
+    public Date getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+
+    public void setFechaNacimiento(Date fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
+    }
+
+    public String getRazonSocial() {
+        return razonSocial;
+    }
+
+    public void setRazonSocial(String razonSocial) {
+        this.razonSocial = razonSocial;
+    }
+
+    public String getNombreComercial() {
+        return nombreComercial;
+    }
+
+    public void setNombreComercial(String nombreComercial) {
+        this.nombreComercial = nombreComercial;
+    }
+
+    public Date getFechaConstitucion() {
+        return fechaConstitucion;
+    }
+
+    public void setFechaConstitucion(Date fechaConstitucion) {
+        this.fechaConstitucion = fechaConstitucion;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    public String getCorreoElectronico() {
+        return correoElectronico;
+    }
+
+    public void setCorreoElectronico(String correoElectronico) {
+        this.correoElectronico = correoElectronico;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+
+    public List<ClientePersonaRelacion> getClientePersonaRelacionEmpresa() {
+        return ClientePersonaRelacionEmpresa;
+    }
+
+    public void setClientePersonaRelacionEmpresa(List<ClientePersonaRelacion> clientePersonaRelacionEmpresa) {
+        ClientePersonaRelacionEmpresa = clientePersonaRelacionEmpresa;
+    }
+
+    public List<ClientePersonaRelacion> getClientePersonaRelacionPersona() {
+        return ClientePersonaRelacionPersona;
+    }
+
+    public void setClientePersonaRelacionPersona(List<ClientePersonaRelacion> clientePersonaRelacionPersona) {
+        ClientePersonaRelacionPersona = clientePersonaRelacionPersona;
+    }
+
+    public List<CreditoInterviniente> getCreditoInterviniente() {
+        return creditoInterviniente;
+    }
+
+    public void setCreditoInterviniente(List<CreditoInterviniente> creditoInterviniente) {
+        this.creditoInterviniente = creditoInterviniente;
+    }
+
+    public List<Credito> getCredito() {
+        return credito;
+    }
+
+    public void setCredito(List<Credito> credito) {
+        this.credito = credito;
+    }
+
+    public List<Cuenta> getCuenta() {
+        return cuenta;
+    }
+
+    public void setCuenta(List<Cuenta> cuenta) {
+        this.cuenta = cuenta;
+    }
+
+    public List<CuentaIntervinientes> getCuentaIntervinientes() {
+        return cuentaIntervinientes;
+    }
+
+    public void setCuentaIntervinientes(List<CuentaIntervinientes> cuentaIntervinientes) {
+        this.cuentaIntervinientes = cuentaIntervinientes;
     }
 
     @Override
@@ -113,20 +261,5 @@ public class Cliente {
             return false;
         return true;
     }
-
-    @Override
-    public String toString() {
-        return "Cliente [codigo=" + codigo + ", tipoCliente=" + tipoCliente + ", tipoIdentificacion="
-                + tipoIdentificacion + ", numeroIdentificacion=" + numeroIdentificacion + ", apellidos=" + apellidos
-                + ", nombres=" + nombres + ", fechaNacimiento=" + fechaNacimiento + ", razonSocial=" + razonSocial
-                + ", nombreComercial=" + nombreComercial + ", fechaConstitucion=" + fechaConstitucion + ", direccion="
-                + direccion + ", correoElectronico=" + correoElectronico + ", telefono=" + telefono
-                + ", ClientePersonaRelacionEmpresa=" + ClientePersonaRelacionEmpresa
-                + ", ClientePersonaRelacionPersona=" + ClientePersonaRelacionPersona + ", creditoInterviniente="
-                + creditoInterviniente + ", credito=" + credito + ", cuenta=" + cuenta + ", cuentaIntervinientes="
-                + cuentaIntervinientes + "]";
-    }
-
-    @Version long version;
 
 }

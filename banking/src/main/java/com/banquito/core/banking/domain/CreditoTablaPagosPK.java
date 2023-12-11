@@ -55,10 +55,4 @@ public class CreditoTablaPagosPK implements Serializable {
         return true;
     }
 
-    @Override
-    public String toString() {
-        return "CreditoTablaPagosPK [codCredito=" + codCredito + ", codCuota=" + codCuota + "]";
-    }
-    
-    
 }

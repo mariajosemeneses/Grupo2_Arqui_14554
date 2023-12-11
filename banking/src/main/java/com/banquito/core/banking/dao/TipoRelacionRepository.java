@@ -4,6 +4,6 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.banquito.core.banking.domain.TipoRelacion;
 
-public interface TipoRelacionRepository extends CrudRepository<TipoRelacion, String>{
+public interface TipoRelacionRepository extends CrudRepository<TipoRelacion, String> {
 
 }

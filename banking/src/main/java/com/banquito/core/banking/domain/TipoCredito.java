@@ -5,6 +5,8 @@ import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -12,12 +14,20 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
+import jakarta.persistence.Version;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+@Getter
+@Setter
+@NoArgsConstructor
 @Entity
 @Table(name = "TIPO_CREDITO")
 public class TipoCredito {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "COD_TIPO_CREDITO", nullable = false)
     private Long codigo;
 
@@ -66,123 +76,11 @@ public class TipoCredito {
     @Temporal(TemporalType.TIMESTAMP)
     private Date fechaUltimoCambio;
 
-    public TipoCredito() {
-    }
+    @Version
+    private long version;
 
     public TipoCredito(Long codigo) {
         this.codigo = codigo;
-    }
-
-    public Long getCodigo() {
-        return codigo;
-    }
-
-    public void setCodigo(Long codigo) {
-        this.codigo = codigo;
-    }
-
-    public TasaInteres getTasaIntereses() {
-        return tasaIntereses;
-    }
-
-    public void setTasaIntereses(TasaInteres tasaIntereses) {
-        this.tasaIntereses = tasaIntereses;
-    }
-
-    public List<TipoCredito> getTipoCredito() {
-        return tipoCredito;
-    }
-
-    public void setTipoCredito(List<TipoCredito> tipoCredito) {
-        this.tipoCredito = tipoCredito;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
-
-    public String getTipoCliente() {
-        return tipoCliente;
-    }
-
-    public void setTipoCliente(String tipoCliente) {
-        this.tipoCliente = tipoCliente;
-    }
-
-    public String getUnidadPlazo() {
-        return unidadPlazo;
-    }
-
-    public void setUnidadPlazo(String unidadPlazo) {
-        this.unidadPlazo = unidadPlazo;
-    }
-
-    public Long getPlazoMinimo() {
-        return plazoMinimo;
-    }
-
-    public void setPlazoMinimo(Long plazoMinimo) {
-        this.plazoMinimo = plazoMinimo;
-    }
-
-    public Long getPlazoMaximo() {
-        return plazoMaximo;
-    }
-
-    public void setPlazoMaximo(Long plazoMaximo) {
-        this.plazoMaximo = plazoMaximo;
-    }
-
-    public Long getMontoMinimo() {
-        return montoMinimo;
-    }
-
-    public void setMontoMinimo(Long montoMinimo) {
-        this.montoMinimo = montoMinimo;
-    }
-
-    public Long getMontoMaximo() {
-        return montoMaximo;
-    }
-
-    public void setMontoMaximo(Long montoMaximo) {
-        this.montoMaximo = montoMaximo;
-    }
-
-    public String getEstado() {
-        return estado;
-    }
-
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
-
-    public Date getFechaCreacion() {
-        return fechaCreacion;
-    }
-
-    public void setFechaCreacion(Date fechaCreacion) {
-        this.fechaCreacion = fechaCreacion;
-    }
-
-    public Date getFechaUltimoCambio() {
-        return fechaUltimoCambio;
-    }
-
-    public void setFechaUltimoCambio(Date fechaUltimoCambio) {
-        this.fechaUltimoCambio = fechaUltimoCambio;
     }
 
     @Override

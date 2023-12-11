@@ -13,7 +13,14 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
+import jakarta.persistence.Version;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+@Getter
+@Setter
+@NoArgsConstructor
 @Entity
 @Table(name = "TRANSACCION")
 public class Transaccion {
@@ -63,99 +70,11 @@ public class Transaccion {
     @Temporal(TemporalType.TIMESTAMP)
     private Date fechaAfectacion;
 
-    public Transaccion() {
-    }
+    @Version
+    private long version;
 
     public Transaccion(Long codigo) {
         this.codigo = codigo;
-    }
-
-    public Long getCodigo() {
-        return codigo;
-    }
-
-    public void setCodigo(Long codigo) {
-        this.codigo = codigo;
-    }
-
-    public Cuenta getCuenta() {
-        return cuenta;
-    }
-
-    public void setCuenta(Cuenta cuenta) {
-        this.cuenta = cuenta;
-    }
-
-    public String getCodigoUnico() {
-        return codigoUnico;
-    }
-
-    public void setCodigoUnico(String codigoUnico) {
-        this.codigoUnico = codigoUnico;
-    }
-
-    public String getTipoAfectacion() {
-        return tipoAfectacion;
-    }
-
-    public void setTipoAfectacion(String tipoAfectacion) {
-        this.tipoAfectacion = tipoAfectacion;
-    }
-
-    public BigDecimal getValorDebe() {
-        return valorDebe;
-    }
-
-    public void setValorDebe(BigDecimal valorDebe) {
-        this.valorDebe = valorDebe;
-    }
-
-    public BigDecimal getValorHaber() {
-        return valorHaber;
-    }
-
-    public void setValorHaber(BigDecimal valorHaber) {
-        this.valorHaber = valorHaber;
-    }
-
-    public String getTipoTransaccion() {
-        return tipoTransaccion;
-    }
-
-    public void setTipoTransaccion(String tipoTransaccion) {
-        this.tipoTransaccion = tipoTransaccion;
-    }
-
-    public String getDetalle() {
-        return detalle;
-    }
-
-    public void setDetalle(String detalle) {
-        this.detalle = detalle;
-    }
-
-    public Date getFechaCreacion() {
-        return fechaCreacion;
-    }
-
-    public void setFechaCreacion(Date fechaCreacion) {
-        this.fechaCreacion = fechaCreacion;
-    }
-
-    public String getEstado() {
-        return estado;
-    }
-
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
-
-    public Date getFechaAfectacion() {
-        return fechaAfectacion;
-    }
-
-    public void setFechaAfectacion(Date fechaAfectacion) {
-        this.fechaAfectacion = fechaAfectacion;
     }
 
     @Override

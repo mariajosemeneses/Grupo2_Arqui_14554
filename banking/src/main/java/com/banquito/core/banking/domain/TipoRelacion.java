@@ -7,7 +7,14 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import jakarta.persistence.Version;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+@Getter
+@Setter
+@NoArgsConstructor
 @Entity
 @Table(name = "TIPO_RELACION")
 public class TipoRelacion {
@@ -22,35 +29,11 @@ public class TipoRelacion {
     @OneToMany(mappedBy = "tipoRelacion")
     private List<ClientePersonaRelacion> clientePersonaRelacion;
 
-    public TipoRelacion() {
-    }
+    @Version
+    private long version;
 
     public TipoRelacion(String codigo) {
         this.codigo = codigo;
-    }
-
-    public String getCodigo() {
-        return codigo;
-    }
-
-    public void setCodigo(String codigo) {
-        this.codigo = codigo;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public List<ClientePersonaRelacion> getClientePersonaRelacion() {
-        return clientePersonaRelacion;
-    }
-
-    public void setClientePersonaRelacion(List<ClientePersonaRelacion> clientePersonaRelacion) {
-        this.clientePersonaRelacion = clientePersonaRelacion;
     }
 
     @Override
