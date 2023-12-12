@@ -1,13 +1,10 @@
 package com.banquito.core.banking.dao;
-import java.util.List;
 
-import com.banquito.core.banking.domain.Cliente;
-import com.banquito.core.banking.domain.ClientePersonaRelacion;
+import org.springframework.data.repository.CrudRepository;
 
-public interface CreditoIntervinienteRepository {
+import com.banquito.core.banking.domain.CreditoInterviniente;
+import com.banquito.core.banking.domain.CreditoIntervinientePK;
 
+public interface CreditoIntervinienteRepository extends CrudRepository<CreditoInterviniente, CreditoIntervinientePK> {
 
-    List<ClientePersonaRelacion> findByClienteEmpresa(Cliente clienteEmpresa);
-    List<ClientePersonaRelacion> findByClientePersona(Cliente clientePersona);
-    List<ClientePersonaRelacion> findByEstado(String estado);
 }
