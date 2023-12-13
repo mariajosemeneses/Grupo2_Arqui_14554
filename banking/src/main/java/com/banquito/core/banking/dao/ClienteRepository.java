@@ -10,5 +10,10 @@ public interface ClienteRepository extends CrudRepository<Cliente, Long> {
 
     Cliente findByCorreoElectronico(String correoElectronico);
 
-    List<Cliente> findByTelefono(String telefono);
+    List<Cliente> findByTelefonoOrderByCodigo(String telefono);
+
+    List<Cliente> findByTipoClienteAndApellidosLikeOrderByApellidos(String tipoCliente, String apellidos);
+
+    List<Cliente> findByTipoClienteAndRazonSocialLikeOrderByRazonSocial(String tipoCliente, String razonSocial);
+
 }
