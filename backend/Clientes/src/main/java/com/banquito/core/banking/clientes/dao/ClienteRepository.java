@@ -1,14 +1,17 @@
 package com.banquito.core.banking.clientes.dao;
 
 import java.util.List;
+import java.util.Optional;
+
 import org.springframework.data.repository.CrudRepository;
 import com.banquito.core.banking.clientes.domain.Cliente;
+import com.banquito.core.banking.clientes.domain.Cliente.TipoIdentificacion;
 
 public interface ClienteRepository extends CrudRepository<Cliente, Long> {
 
-    Cliente findByTipoIdentificacionAndNumeroIdentificacion(String tipoIdentificacion, String numeroIdentificacion);
+    Optional<Cliente> findByTipoIdentificacionAndNumeroIdentificacion(TipoIdentificacion tipoIdentificacion, String numeroIdentificacion);
 
-    Cliente findByCorreoElectronico(String correoElectronico);
+    Optional<Cliente> findByCorreoElectronico(String correoElectronico);
 
     List<Cliente> findByTelefonoOrderByCodigo(String telefono);
 
